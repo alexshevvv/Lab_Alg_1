@@ -7,7 +7,7 @@ def exponent_acc(arr, i, j, n, trg):
         step = step * 2
 
     start = i
-    finish = min(i + step, n - 1)
+    finish = min(i + (step // 2), n - 1)
 
     # применяем алгоритм бинарного поиска
     while start <= finish:
