@@ -18,26 +18,29 @@ def diagonal_search(arr, trg):
 
 def main():
     n = 2 ** 13
-    target = 2 * n - 1 # для 1-х данных
+    target = 2 * n - 1  # для 1-х данных
     # для 2-x: target = 16 * n - 1
     for idx in range(1, 14):
         m = 2 ** idx
-        matrix = [[((n // m) * i + j) * 2 for j in range(m)] for i in range(n)] # для 1-х данных
+        matrix = [[((n // m) * i + j) * 2 for j in range(m)] for i in range(n)]  # для 1-х данных
         # для 2-x: matrix = [[((n // m) * i * j) * 2 for j in range(m)] for i in range(n)]
 
         # для подсчёта времени работы
-        start_time = time.time()
+        start_time = time.perf_counter()
         found = diagonal_search(matrix, target)
-        end_time = time.time()
+        end_time = time.perf_counter()
 
         # вывод времени для каждого зн-я i и m, где m = 2^i
         if found:
-            print(f"idx = {idx}, m = {m} (2^{idx}) - True")
+            print(f"idx = {idx}, M = {m} (2^{idx}) - True")
         else:
-            print(f"idx = {idx}, m = {m} (2^{idx}) - False")
+            print(f"idx = {idx}, M = {m} (2^{idx}) - False")
 
         time_ms = (end_time - start_time) * 1000
-        print(f"Time taken: {time_ms:.2f} ms")
+        print(f"Time taken: {time_ms:.3f} ms")
+
+    # Дополнительная проверка - для разовых тестов на проверку содержания в матрице
+    # искомого элемента, значение которого, рассчитал через заданную для данных формулу:
 
     # found = diagonal_search(matrix, target)
     # if found:
