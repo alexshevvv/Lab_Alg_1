@@ -27,16 +27,16 @@ def diagonal_search_exp(arr, trg):
     rows, cols = len(arr), len(arr[0])
     row, col = 0, cols - 1
 
-    while 0 <= row < rows and 0 <= col < cols:
-        if arr[row][col] == trg:
-            return True
-        elif arr[row][col] < trg:
+    while row < rows and col >= 0:
+        if arr[row][col] < trg:
             if row < rows - 2:
                 row = exponent_acc(arr, row, col, rows, trg)  # применяем экспоненциальное ускорение
             else:
                 row += 1
-        else:
+        elif arr[row][col] > trg:
             col -= 1
+        else:
+            return True
 
     return False
 
