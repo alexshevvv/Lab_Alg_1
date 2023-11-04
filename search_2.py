@@ -19,11 +19,9 @@ def diagonal_search(arr, trg):
 def main():
     n = 2 ** 13
     target = 2 * n - 1  # для 1-х данных
-    # для 2-x: target = 16 * n - 1
     for idx in range(1, 14):
         m = 2 ** idx
         matrix = [[((n // m) * i + j) * 2 for j in range(m)] for i in range(n)]  # для 1-х данных
-        # для 2-x: matrix = [[((n // m) * i * j) * 2 for j in range(m)] for i in range(n)]
 
         # для подсчёта времени работы
         start_time = time.perf_counter()
